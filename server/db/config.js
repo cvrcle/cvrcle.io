@@ -19,6 +19,6 @@ db.once('open', function() {
   console.log('Yo bro, you\'re good to go!');
 });
 
-// do the thing?
+// do the thing? bro?
 
 module.exports = db;
