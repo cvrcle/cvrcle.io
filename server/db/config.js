@@ -19,6 +19,6 @@ db.once('open', function() {
   console.log('Yo bro, you\'re good to go!');
 });
 
-//is git trello working?
+// do the thing?
 
 module.exports = db;
