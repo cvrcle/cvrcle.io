@@ -10,6 +10,8 @@ var options = { promiseLibrary: require('bluebird') };
 var mongoUri = 'mongodb://hrla13user:DictionaryAttack123!!@ds125060.mlab.com:25060/pokemon';
 var db = mongoose.createConnection(mongoUri, options);
 
+// we might be using sequelize now :)
+
 Promise.promisifyAll(require("mongoose"));
 db.on('error', console.error.bind(console, 'connection error:'));
 
