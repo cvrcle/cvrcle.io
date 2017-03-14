@@ -1,4 +1,34 @@
-.google-map {
-  height: 500px;
-  width: 500px
+.ui.card.entry {
+  width: 80%;
+  margin: auto;
+}
+
+.ui.card.entry:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.card.entry .header {
+  height: 30px;
+}
+
+.card.entry .author {
+  float: left;
+}
+
+.card.entry .date {
+  float: right;
+}
+
+.modal-content .modal-header {
+  font-size: 25px;
+}
+
+.modal-content label {
+  font-weight: 400;
+}
+
+.modal-header .close {
+  margin-top: 4px;
+  font-size: 25px;
 }
