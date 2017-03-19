@@ -19,8 +19,8 @@ const mapDispatchToProps = (dispatch) => {
     },
     onLogoutClick: () => {
       dispatch(logoutSuccess())
-      browserHistory.push('/')
-      location.reload()
+      // browserHistory.push('/')
+      // location.reload()
     }
   }
 }

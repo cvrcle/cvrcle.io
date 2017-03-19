@@ -59,12 +59,12 @@ class ContributorEntry extends Component {
   deleteEntry(e) {
     e.preventDefault();
     e.stopPropagation();
-    
     axios.delete(`http://localhost:3000/entries?id=${this.state.id}&itinID=1`)
       .then((res) => {
         console.log("reserser", res);
       })
       .catch(err => console.log(err))
+    this.props.removeEntryFromState(this.state.id)
   }
 
   render() {

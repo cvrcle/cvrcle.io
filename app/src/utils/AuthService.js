@@ -1,5 +1,6 @@
 import Auth0Lock from 'auth0-lock'
 import jwtDecode from 'jwt-decode'
+import { browserHistory } from 'react-router'
 
 // import LogoImg from 'images/test-icon.png';
 

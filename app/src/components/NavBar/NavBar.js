@@ -7,7 +7,7 @@ const NavBar = ({ isAuthenticated, profile, error, onLoginClick, onLogoutClick }
 <div>
   <Navbar>
     <Navbar.Header>
-        <Link to='/home'>
+        <Link to='/#/itineraries'>
           <Image className="cvrcle-logo-icon" src='../cvrcle-logo-icon.png' />
         </Link>
     </Navbar.Header>

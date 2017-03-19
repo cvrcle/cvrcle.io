@@ -41,6 +41,8 @@ export function loginRequest() {
 }
 
 export function loginSuccess(profile) {
+    browserHistory.push('/#/home')
+    location.reload()
   return {
     type: LOGIN_SUCCESS,
     profile
@@ -55,8 +57,9 @@ export function loginError(error) {
 }
 
 export function logoutSuccess() {
+  browserHistory.push('/#/logout')
   authService.logout()
-  browserHistory.push('/')
+  location.reload()
   return {
     type: LOGOUT_SUCCESS
   }

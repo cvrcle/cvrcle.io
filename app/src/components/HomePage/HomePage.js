@@ -11,7 +11,7 @@ import { bindActionCreators } from 'redux';
 
 
 
-class Itinerary extends Component {
+class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -80,6 +80,14 @@ class Itinerary extends Component {
     console.log('google maps?!', window.google.maps);
   }
 
+    removeEntryFromState(entryID) {
+      console.log('Parent function invoked. Deleting Entry ID: ', entryID)
+      console.log(this.state.entries)
+      // this.setState({
+      //   entries:this.state.entries.splice(entryID)
+      // })
+  }
+
   render() {
     return (
       <div>
@@ -102,7 +110,7 @@ class Itinerary extends Component {
               <Card.Group className="existing-entries">
                 {this.state.entries.length ?
                   (this.state.entries.map((entryData, i) => (
-                    <ContributorEntry key={i} {...entryData} />))) :
+                    <ContributorEntry key={i} {...entryData} removeEntryFromState={this.removeEntryFromState.bind(this)} />))) :
                   <div className="text-center">No entries yet!</div>
                 }
               </Card.Group>
@@ -114,7 +122,7 @@ class Itinerary extends Component {
   }
 }
 
-export default Itinerary
+export default HomePage
 
 // const mapStateToProps = (state) => {
 //   return {
