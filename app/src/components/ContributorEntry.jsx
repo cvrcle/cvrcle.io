@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import axios from "axios";
 import { Card, Modal } from 'semantic-ui-react';
 import EditModal from './EditModal.jsx';
+import $ from 'jquery'; 
 
 class ContributorEntry extends Component {
   constructor(props) {
@@ -59,10 +60,14 @@ class ContributorEntry extends Component {
   deleteEntry(e) {
     e.preventDefault();
     e.stopPropagation();
-    
+
+    var id = e.target.parentElement.parentElement.id;
+
+    //ROUTE IS WRONG? ENTRY NOT DELETING
     axios.delete(`http://localhost:3000/entries?id=${this.state.id}&itinID=1`)
       .then((res) => {
         console.log("reserser", res);
+        $('#'+id).remove();
       })
       .catch(err => console.log(err))
   }
@@ -73,7 +78,7 @@ class ContributorEntry extends Component {
         {this.state.isEditing ? 
           <EditModal resetFlag={this.toggleModal} updateEntry={this.updateEntry} data={this.state}/> 
           : "" }
-        <Card id={this.state.id} color="teal" className="entry" onClick={this.toggleModal}>
+        <Card id={"id-"+this.state.id} color="teal" className="entry" onClick={this.toggleModal}>
           <Card.Content>
             <span className="remove-btn glyphicon glyphicon-remove" id={this.state.id} onClick={this.deleteEntry}></span>
             <Card.Header> 
