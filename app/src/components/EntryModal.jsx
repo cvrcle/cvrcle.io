@@ -8,8 +8,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import GOOGLE_API_KEY from '../../../config.js';
 // import rootReducer from '../reducers/reducers_index';
-import store from '../store';
-import { updateLocations } from '../actions/actions_index';
+
+
 
 const qs = require('qs');
 
@@ -168,21 +168,21 @@ class EntryModal extends Component {
   }
 }
 
-// export default EntryModal;
+export default EntryModal;
 
-const mapStateToProps = (state) => {
-  return {
-    storeLocations: state.storeLocations
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     storeLocations: state.storeLocations
+//   }
+// }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    updateLocations: updateLocations
-  }, dispatch);
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return bindActionCreators({
+//     updateLocations: updateLocations
+//   }, dispatch);
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EntryModal);
+// export default connect(mapStateToProps, mapDispatchToProps)(EntryModal);
 
 
 

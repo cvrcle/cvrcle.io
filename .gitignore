@@ -1,9 +1,10 @@
 ** Things we don't like or want go here to be ignored forever **
 node_modules
 npm-debug.log
-app/build
+app/build/*
 .env
 .vscode
 .DS_Store
 config.js
 db.json
+.scratchfile

@@ -2,7 +2,6 @@ const Model = require('objection').Model;
 const Itinerary = require('./Itinerary')
 const Entry = require('./Entry')
 
-
 class User extends Model {
   static get tableName() {
     return 'users'
@@ -22,8 +21,6 @@ class User extends Model {
       }
     };
   }
-
-
 
   static get relationMappings() {
     return {
