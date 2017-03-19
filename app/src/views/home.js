@@ -5,14 +5,14 @@ import Navbar from '../components/navbar.jsx';
 import {Card} from 'semantic-ui-react';
 import {browserHistory} from 'react-router';
 import { Link } from 'react-router'
+import $ from 'jquery';
 
 class Logout extends Component {
   constructor() {
     super();
 
     this.state = {
-      itins: [],
-      deleted: null
+      itins: []
     }
 
     this.getUserItineraries = this.getUserItineraries.bind(this);
@@ -41,13 +41,11 @@ class Logout extends Component {
     
     const id = e.target.dataset.id;
     const oid = e.target.dataset.ownerid;
-    
+
     axios.delete(`http://localhost:3000/itineraries?id=${id}&ownerID=${oid}`)
       .then((res) => {
         console.log("deleted", res);
-        this.setState({
-          delete: res
-        })
+        $('#id-'+id).remove();
       })
       .catch(err => console.log(err))
   }
@@ -58,7 +56,7 @@ class Logout extends Component {
         <Navbar />
         <div className="itin-container">
           {this.state.itins ? this.state.itins.map((itin) => (
-            <Card color="teal" href={`/#/itinerary?itinID=${itin.id}`}>
+            <Card id={"id-"+itin.id} color="teal" href={`/#/itinerary?itinID=${itin.id}`}>
               <Card.Content>
                 <span className="glyphicon glyphicon-remove" data-id={itin.id} data-ownerid={itin.ownerID} onClick={this.deleteItinerary}></span>
                 <Card.Header>{itin.itinName}</Card.Header>
