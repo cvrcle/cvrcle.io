@@ -37,7 +37,7 @@ class AppContainer extends Component {
               <h3 style={{
                 fontWeight: 300,
                 fontSize: 50
-              }}>Where are you headed next?</h3>
+              }}>What's Your Next Adventure?</h3>
             </div>
           </div>
         </Parallax>
