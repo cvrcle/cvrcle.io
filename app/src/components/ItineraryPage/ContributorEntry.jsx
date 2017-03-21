@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { Card } from 'semantic-ui-react';
-import EditModal from '../components/EditModal.jsx';
-import { connect } from 'react-redux'
+import EditModal from './EditModal.jsx';
 
 class ContributorEntry extends Component {
   constructor(props) {
@@ -103,12 +102,4 @@ class ContributorEntry extends Component {
   }
 }
  
-const mapStateToProps = (state) => {
-  const { isAuthenticated, profile, error } = state.auth
-  return {
-    isAuthenticated,
-    profile
-  }
-}
-
-export default ContributorEntry = connect(mapStateToProps)(ContributorEntry)
+export default ContributorEntry

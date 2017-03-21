@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { Button, Modal, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-import GOOGLE_API_KEY from '../../../config.js';
+import GOOGLE_API_KEY from '../../../../config.js';
 
 class NewItinModal extends Component {
   constructor(props) {

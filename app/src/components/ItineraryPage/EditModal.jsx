@@ -3,7 +3,7 @@ import axios from "axios";
 import { Button, Modal, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { geocodeByAddress } from 'react-places-autocomplete';
-import GOOGLE_API_KEY from '../../../config.js';
+import GOOGLE_API_KEY from '../../../../config.js';
 
 class EditModal extends Component {
   constructor(props) {

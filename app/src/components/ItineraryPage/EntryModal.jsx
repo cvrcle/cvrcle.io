@@ -3,8 +3,7 @@ import axios from 'axios';
 import { Button, Modal, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { geocodeByAddress, geocodeByPlaceId } from 'react-places-autocomplete';
-import { connect } from 'react-redux';
-import GOOGLE_API_KEY from '../../../config.js';
+import GOOGLE_API_KEY from '../../../../config.js';
 
 const qs = require('qs');
 
@@ -183,15 +182,5 @@ class EntryModal extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { isAuthenticated, profile, error } = state.auth
-  return {
-    isAuthenticated,
-    profile
-  }
-}
-
-export default EntryModal = connect(mapStateToProps)(EntryModal)
-
-
+export default EntryModal
 

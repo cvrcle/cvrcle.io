@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from "axios";
 import { Container, Header, Card, Message, Segment, Form } from 'semantic-ui-react';
-import ContributorEntry from '../../containers/ContributorEntry.jsx';
-import GoogleMap from '../../containers/map.jsx';
-import AddNewEntry from '../AddNewEntry.jsx';
-import NavBar from '../NavBar/NavBar.js';
+import ContributorEntry from './ContributorEntry.jsx';
+import GoogleMap from './map.jsx';
+import AddNewEntry from './AddNewEntry.jsx';
+// import NavBar from '../NavBar/NavBar.js';
 
 /**
  * @description:  Individual itinerary view

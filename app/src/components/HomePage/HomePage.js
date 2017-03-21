@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import axios from 'axios';
 import NavBar from '../../components/NavBar/NavBar.js';
 import { Card, Header, Icon, Image, Circular } from 'semantic-ui-react';
-import { hashHistory } from 'react-router';
+// import { hashHistory } from 'react-router';
 import { Link } from 'react-router';
 import $ from 'jquery';
-import { connect } from 'react-redux';
-import NewItinModal from '../../components/NewItinModal.jsx'
+// import { HomePageContainer } from '../../containers'
+import NewItinModal from './NewItinModal.jsx'
 
 /**
  * @description:  HomePage.js renders a unique homepage for every user after logging in
@@ -132,13 +132,4 @@ class HomePage extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { isAuthenticated, profile, error } = state.auth
-  return {
-    isAuthenticated,
-    profile
-  }
-}
-
-export default HomePage = connect(mapStateToProps)(HomePage)
-
+export default HomePage

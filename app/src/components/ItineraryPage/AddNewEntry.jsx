@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EntryModal from '../containers/EntryModal.jsx';
+import EntryModal from './EntryModal.jsx';
 import { Button }  from 'react-bootstrap';
 
 // add new entry Button

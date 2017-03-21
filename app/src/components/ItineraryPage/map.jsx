@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 class GoogleMap extends Component {
   constructor(props) {
@@ -37,10 +36,4 @@ class GoogleMap extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    storeLocations: state.storeLocations
-  }
-}
-
-export default connect(mapStateToProps)(GoogleMap);
+export default GoogleMap
