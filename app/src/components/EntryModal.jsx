@@ -6,8 +6,8 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 import { geocodeByAddress, geocodeByPlaceId } from 'react-places-autocomplete';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import GOOGLE_API_KEY from '../../../config.js';
 // import rootReducer from '../reducers/reducers_index';
+let GOOGLE_API_KEY = 'AIzaSyBJ22p9p-wIVDRsTz3Xc97HpcrnXUQBaM0';
 
 const qs = require('qs');
 
@@ -54,7 +54,7 @@ class EntryModal extends Component {
       // console.log('jfdksjafkjdskfajdskfa', this.props.profile)
       console.log('fbid', fbID);
       console.log('id', id[1]); // returns fbid number
-      axios.get(`http://localhost:3000/users?fbID=${id[1]}`)
+      axios.get(`http://arcane-shore-51156.herokuapp.com/users?fbID=${id[1]}`)
         .then((res) => {
           let tmp = res.data[0]["id"]
           console.log(tmp)
@@ -92,8 +92,8 @@ class EntryModal extends Component {
       if (err) { console.log('Error', err) } 
         console.log(`The longitutde and latitude for ${address}`, { lat, lng })
       
-      const key = GOOGLE_API_KEY
-      let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${key}`
+      const key = 'AIzaSyBJ22p9p-wIVDRsTz3Xc97HpcrnXUQBaM0'
+      let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyBJ22p9p-wIVDRsTz3Xc97HpcrnXUQBaM0`
       
       console.log('cont id', this.state.contributorID)
       console.log('itinid', this.itinID)
@@ -118,7 +118,7 @@ class EntryModal extends Component {
           // TODO: Find contributor name from contributorID in join table
           // console.log('location', location);
           axios
-            .post('http://localhost:3000/entries', qs.stringify(locationToDatabase))
+            .post('http://arcane-shore-51156.herokuapp.com/entries', qs.stringify(locationToDatabase))
             .then((response) => {
               console.log(response)
               // this.props.updateLocations(locationToDatabase)

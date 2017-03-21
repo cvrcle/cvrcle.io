@@ -9,7 +9,7 @@ export default class AuthService {
     // Configure Auth0 lock
     this.lock = new Auth0Lock(clientId, domain, {
       auth: {
-        redirectUrl: 'http://localhost:8080/',
+        redirectUrl: 'http://arcane-shore-51156.herokuapp.com/',
         responseType: 'token'
       },
       // theme: {

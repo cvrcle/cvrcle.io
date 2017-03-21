@@ -19,7 +19,7 @@ class Landing extends React.Component {
               width: 800,
               height: 300
             }}>
-            <Image style={{margin: 'auto', height: 190, width: 680 }} src='../../../cvrcle.png' />
+            <Image style={{margin: 'auto', height: 190, width: 680 }} src='http://i.imgur.com/7i3EUWG.png' />
             <div className="parallax-content1 typewriter">
               <h4 style={{
                 fontWeight: 300,
@@ -120,7 +120,7 @@ class Landing extends React.Component {
           <Grid>
             <Row>
               <Col xs={6} md={4}>
-                <Image src='../../../../andrew-img.jpg' className="img-circle" />
+                <Image src='http://i.imgur.com/eFKk2W0.jpg' className="img-circle" />
                 <div style={
                   {
                     textAlign: 'center',
@@ -132,7 +132,7 @@ class Landing extends React.Component {
                 </div>
               </Col>
               <Col xs={6} md={4}>
-                <Image src='../../../../regina-img.jpg' className="img-circle" />
+                <Image src='http://i.imgur.com/4SrH6Uh.jpg' className="img-circle" />
                 <div style={
                   {
                     textAlign: 'center'
@@ -144,14 +144,14 @@ class Landing extends React.Component {
                 </div>
               </Col>
               <Col xsHidden md={4}>
-                <Image src='../../../../armen-img.jpg' className="img-circle" />
+                <Image src='http://i.imgur.com/h3LP9x7.jpg' className="img-circle" />
                 <div style={
                   {
                     textAlign: 'center'
                   }}>
                   <h3 style={{
                     fontWeight: 200
-                  }}>Armen Rostam</h3>
+                  }}>Armen Rostamian</h3>
                   <h4>DevOps Server God</h4>
                 </div>
               </Col>
@@ -172,3 +172,6 @@ Landing.propTypes = {
 }
 
 export default Landing
+
+
+//comment

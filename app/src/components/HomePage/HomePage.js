@@ -28,7 +28,7 @@ class HomePage extends Component {
     if (this.props.isAuthenticated) {
       let fbID = this.props.profile.user_id
       let id = fbID.split('|')
-      axios.get(`http://localhost:3000/users?fbID=${id[1]}`)
+      axios.get(`http://arcane-shore-51156.herokuapp.com/users?fbID=${id[1]}`)
         .then((res) => {
           console.log('res in homepage', res)
           let tmp = res.data[0]["id"]
@@ -46,7 +46,8 @@ class HomePage extends Component {
   }
 
   getUserItineraries() {
-    axios.get(`http://localhost:3000/itineraries?ownerID=${this.state.oid}`)
+
+    axios.get(`http://arcane-shore-51156.herokuapp.com/itineraries?ownerID=${this.state.oid}`)
       .then((res) => this.setState({ itins: res.data }))
       .catch(err => console.log(err))
   }
@@ -57,7 +58,7 @@ class HomePage extends Component {
     const id = e.target.dataset.id;
     const oid = e.target.dataset.ownerid;
 
-    axios.delete(`http://localhost:3000/itineraries?id=${id}&ownerID=${oid}`)
+    axios.delete(`http://arcane-shore-51156.herokuapp.com/itineraries?id=${id}&ownerID=${oid}`)
       .then((res) => {
         $('#id-' + id).remove();
       })

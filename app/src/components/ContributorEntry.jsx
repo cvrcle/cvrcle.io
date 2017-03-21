@@ -32,7 +32,7 @@ class ContributorEntry extends Component {
     if (this.props.isAuthenticated) {
       let fbID = this.props.profile.user_id
       let id = fbID.split('|')
-      axios.get(`http://localhost:3000/users?id=${this.props.contributorID}`)
+      axios.get(`http://arcane-shore-51156.herokuapp.com/users?id=${this.props.contributorID}`)
         .then((res) => {
           let tmp = res.data[0]["id"]
           console.log(tmp)

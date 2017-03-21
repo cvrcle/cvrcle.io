@@ -52,7 +52,7 @@ class NewItinModal extends Component {
       isActive: 1,
       isPublic: 0,
     }
-    axios.post('http://localhost:3000/itineraries', itinData)
+    axios.post('http://arcane-shore-51156.herokuapp.com/itineraries', itinData)
       .then((res) => {
         console.log("successful post", res.data.created_at);
         itinData.created_at = res.data.created_at.substring(0,10)

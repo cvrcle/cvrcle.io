@@ -1,0 +1,246 @@
+.cvrcle-logo {
+  margin: 50px auto 20px;
+  height: 125px;
+}
+
+.cvrcle-logo-icon {
+  height: 20px;
+  margin-top: 3px;
+}
+
+.itin-container .ui.card {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.itin-container .ui.card .glyphicon-remove {
+  top: -5px;
+  left: 5px;
+  float: right;
+}
+
+.itin-container .ui.icon.center.aligned.header {
+  margin-top: 20px;
+  margin-bottom: 45px;
+}
+
+.itin-container .add-itin {
+  position: absolute;
+  margin-top: -5px;
+  margin-left: 141px;
+}
+
+.ui.card .glyphicon-remove:hover {
+  color: #777;
+}
+
+.itin-container .ui.teal.card .content .header {
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 20px;
+  color: #333;
+  height: 45px;
+}
+
+.container > .navbar-header {
+  float: left;
+  font-size: 18px;
+  margin-top: 13px;
+}
+
+.navbar-header li > a {
+  float: left;
+}
+
+.navbar.navbar-default {
+  background-color: #333;
+  min-height: 55px;
+}
+
+.nav.navbar-nav {
+  float: right;
+  margin-top: 2px;
+}
+
+.navbar .nav > li {
+  display: inline-block;
+}
+
+.navbar-default .nav.navbar-nav > li > a:hover {
+  color: #e6e6e6;
+}
+
+.ui.card {
+  width: 80%;
+  margin: auto;
+}
+
+.ui.card:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.card .remove-btn {
+  float: right;
+}
+
+.card .header {
+  height: 30px;
+}
+
+.card .author {
+  float: left;
+}
+
+.card .date {
+  float: right;
+}
+
+.modal-content .modal-header {
+  font-size: 25px;
+}
+
+.modal-content label {
+  font-weight: 400;
+}
+
+.modal-header .close {
+  margin-top: 4px;
+  font-size: 25px;
+}
+
+.add-entry {
+  width: 300px;
+  height: 100px;
+  position: center;
+  margin: auto;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.single-entry {
+  width: 100%;
+  margin-top: 20px 
+}
+
+.entries {
+  margin-bottom: 100px;
+}
+
+.google-map {
+  height: 450px;
+  width: 100%;
+}
+
+.map-view {
+  height: 480px;
+  width: 81%;
+  margin: 10px auto 50px;
+}
+
+.map-view button.entry {
+  float: right;
+  border-radius: 0px;
+}
+
+.parallax-bg-image {
+  background-repeat: no-repeat;
+  width: 100%;
+  margin-top: -30px
+}
+
+.parallax-bg-image2 {
+  background-repeat: no-repeat;
+  width: 100%;
+  margin-top: -30px
+}
+
+.img-circle {
+  height: 200px;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.react-parallax {
+  background-size: cover;
+  height: 600px;
+  text-align: center
+}
+
+.developer-story {
+
+}
+
+.react-parallax-content {
+  display: inline-block;
+  margin-top: 100px;
+  color: black;
+}
+
+.window-seat {
+  height: 100px;
+  margin: auto;
+  margin-top: 20px
+}
+
+.navbar-links {
+  color: #777;
+  float: right;
+  font-size: 15px;
+  margin-top: 11px;
+  border: none;
+  background-color: #333;
+}
+
+.navbar-links:hover {
+  color: #fff;
+}
+
+.itin-name {
+  text-align: center;
+  margin: 20px;
+}
+
+.typewriter h4 {
+  overflow: hidden; 
+  border-right: .08em solid black; 
+  white-space: nowrap; 
+  margin: 0 auto; 
+  letter-spacing: .08em; 
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+.typewriter h4 {
+  overflow: hidden; 
+  border-right: .08em solid black; 
+  white-space: nowrap; 
+  margin: 0 auto; 
+  letter-spacing: .08em; 
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+
+.itin-list {
+  width: 100%
+}
+
+.profile-picture {
+  margin-top: 100px;
+  width: 325px;
+}
+

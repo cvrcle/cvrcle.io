@@ -7,6 +7,7 @@ class Itinerary extends Model {
     return 'itineraries'
   }
 
+
   static get jsonSchema() {
     return {
       type: 'object',

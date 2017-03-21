@@ -6,7 +6,7 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 import { geocodeByAddress, geocodeByPlaceId } from 'react-places-autocomplete';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import GOOGLE_API_KEY from '../../../config.js';
+let GOOGLE_API_KEY = 'AIzaSyBJ22p9p-wIVDRsTz3Xc97HpcrnXUQBaM0'
 
 class EditModal extends Component {
   constructor(props) {
@@ -54,8 +54,8 @@ class EditModal extends Component {
       if (err) { console.log('Error', err) } 
         console.log(`The longitutde and latitude for ${address}`, { lat, lng })
       
-      const key = GOOGLE_API_KEY
-      let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${key}`
+      const key = 'AIzaSyBJ22p9p-wIVDRsTz3Xc97HpcrnXUQBaM0'
+      let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyBJ22p9p-wIVDRsTz3Xc97HpcrnXUQBaM0`
       
       //axios call to google maps api with lat and lng
       axios
@@ -79,7 +79,7 @@ class EditModal extends Component {
           // TODO: Find contributor name from contributorID in join table
           // TODO: CHANGE TO PUT REQUEST (MODIFYING)
           // axios
-          //   .put('http://localhost:3000/entries', location)
+          //   .put('http://arcane-shore-51156.herokuapp.com/entries', location)
           //   .then((response) => {
           //     console.log(response)
           //   })

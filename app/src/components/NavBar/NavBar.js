@@ -8,7 +8,7 @@ const NavBar = ({ isAuthenticated, profile, error, onLoginClick, onLogoutClick }
   <Navbar>
     <Navbar.Header>
         <Link to='/home'>
-          <Image className="cvrcle-logo-icon" src='../cvrcle-logo-icon.png' />
+          <Image className="cvrcle-logo-icon" src='http://i.imgur.com/Br8tEA9.png' />
         </Link>
     </Navbar.Header>
     <Nav>

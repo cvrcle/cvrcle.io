@@ -15,6 +15,7 @@ const Entry = require('./models/Entry');
 // controller.insertOne(payload, ModelType) 
 
 module.exports = (app) => {
+  
   app.get('/users', (req, res, next) => {
     User
       .query()
