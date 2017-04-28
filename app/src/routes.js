@@ -1,7 +1,8 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
-import { App, LandingPage, HomePage } from './containers'
+import { App, HomePage } from './containers'
 import NotFoundPage from './components/NotFoundPage.jsx'
+import LandingPage from './components/LandingPage.jsx'
 import Itinerary from './components/Itinerary.jsx'
 import AuthService from './utils/AuthService'
 
