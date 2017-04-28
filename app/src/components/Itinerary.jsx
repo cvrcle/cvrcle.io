@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from "axios";
 import { Container, Header, Card, Message, Segment, Form } from 'semantic-ui-react';
 import ContributorEntry from '../containers/ContributorEntry.jsx';
-import GoogleMap from '../containers/map.jsx';
+import GoogleMap from '../containers/Map.jsx';
 import AddNewEntry from './AddNewEntry.jsx';
 
 class Itinerary extends Component {
