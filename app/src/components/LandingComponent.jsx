@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Image } from 'semantic-ui-react';
-import { NavBarContainer } from '../../containers'
+import { NavBarContainer } from '../containers'
 import { Parallax, Background } from 'react-parallax';
 import { Col, Grid, Row } from 'react-bootstrap';
 

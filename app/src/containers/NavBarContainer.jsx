@@ -1,8 +1,7 @@
 import { connect } from 'react-redux'
-import { loginRequest, logoutSuccess } from '../../actions/auth'
-import { Landing } from '../../components'
+import { loginRequest, logoutSuccess } from '../actions/auth'
+import { NavBar } from '../components'
 import { hashHistory } from 'react-router'
-import { checkLogin } from '../../actions/auth'
 
 const mapStateToProps = (state) => {
   const { isAuthenticated, profile, error } = state.auth
@@ -15,19 +14,17 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-     onLoginClick: () => {
+    onLoginClick: () => {
       dispatch(loginRequest())
     },
     onLogoutClick: () => {
       dispatch(logoutSuccess())
       hashHistory.push('/')
       location.reload()
-    },
-    checkLogin: () => {
-      dispatch(checkLogin())}
+    }
   }
 }
 
-const LandingContainer = connect(mapStateToProps, mapDispatchToProps)(Landing)
+const NavBarContainer = connect(mapStateToProps, mapDispatchToProps)(NavBar)
 
-export default LandingContainer
+export default NavBarContainer

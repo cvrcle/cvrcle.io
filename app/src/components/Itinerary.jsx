@@ -2,15 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from "axios";
 import { Container, Header, Card, Message, Segment, Form } from 'semantic-ui-react';
-import ContributorEntry from '../../containers/ContributorEntry.jsx';
-import GoogleMap from '../../containers/map.jsx';
-import AddNewEntry from '../AddNewEntry.jsx';
-import NavBar from '../NavBar/NavBar.js';
-
-/**
- * @description:  Individual itinerary view
- *                Holds the map view with markers and card list of entries
- */
+import ContributorEntry from '../containers/ContributorEntry.jsx';
+import GoogleMap from '../containers/map.jsx';
+import AddNewEntry from './AddNewEntry.jsx';
 
 class Itinerary extends Component {
   constructor(props) {

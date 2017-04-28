@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavBarContainer } from '../../containers'
+import { NavBarContainer } from '../containers'
 
 // default view for the app
 // see /src/routes for routes for this.props.children

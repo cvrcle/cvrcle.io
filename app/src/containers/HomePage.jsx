@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import axios from 'axios';
-import NavBar from '../../components/NavBar/NavBar.js';
 import { Card, Header, Icon, Image, Circular } from 'semantic-ui-react';
 import { hashHistory } from 'react-router';
 import { Link } from 'react-router';
 import $ from 'jquery';
 import { connect } from 'react-redux';
-import NewItinModal from '../../components/NewItinModal.jsx'
+import NewItinModal from '../components/NewItinModal.jsx'
 
 class HomePage extends Component {
   constructor() {
