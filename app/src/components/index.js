@@ -1,5 +1,2 @@
-export App from './App.jsx'
 export NotFoundPage from './NotFoundPage.jsx'
-export NavBar from './NavBar.jsx'
-export Landing from './LandingComponent.jsx'
 export Itinerary from './Itinerary.jsx'

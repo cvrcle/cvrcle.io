@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { hashHistory } from 'react-router'
 import { Card, Image } from 'semantic-ui-react';
-import { NavBarContainer } from '../containers'
 import { Parallax, Background } from 'react-parallax';
 import { Col, Grid, Row } from 'react-bootstrap';
+import { checkLogin, loginRequest, logoutSuccess } from '../actions/auth'
+import { NavBarContainer } from '../containers'
 
 class Landing extends React.Component {
   constructor(props) {
@@ -99,4 +102,28 @@ Landing.propTypes = {
   checkLogin: React.PropTypes.func.isRequired
 }
 
-export default Landing
+const mapStateToProps = (state) => {
+  const { isAuthenticated, profile, error } = state.auth
+  return {
+    isAuthenticated,
+    profile,
+    error
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+     onLoginClick: () => {
+      dispatch(loginRequest())
+    },
+    onLogoutClick: () => {
+      dispatch(logoutSuccess())
+      hashHistory.push('/')
+      location.reload()
+    },
+    checkLogin: () => {
+      dispatch(checkLogin())}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing)
