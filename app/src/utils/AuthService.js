@@ -17,7 +17,8 @@ export default class AuthService {
       },
       languageDictionary: {
         title: 'React Redux Auth0 Kit'
-      }
+      },
+      allowedConnections: ['facebook']
     })
     // binds login functions to keep this context
     this.login = this.login.bind(this)
