@@ -12,7 +12,6 @@ class NewItinModal extends Component {
     }
     // function binds
     this.close = this.close.bind(this);
-    this.onChange = this.onChange.bind(this);
     this.handleInputchange = this.handleInputchange.bind(this);
     this.addUserItinerary = this.addUserItinerary.bind(this);
   }

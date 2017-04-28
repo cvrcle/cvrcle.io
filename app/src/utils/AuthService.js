@@ -1,8 +1,7 @@
 import Auth0Lock from 'auth0-lock'
 import jwtDecode from 'jwt-decode'
 
-
-// import LogoImg from 'images/test-icon.png';
+import LogoImg from '../../public/images/cvrcle.png'
 
 export default class AuthService {
   constructor(clientId, domain) {
@@ -12,10 +11,10 @@ export default class AuthService {
         redirectUrl: 'http://localhost:8080/',
         responseType: 'token'
       },
-      // theme: {
-      //   logo: LogoImg,
-      //   primaryColor: "#b81b1c"
-      // },
+      theme: {
+        logo: LogoImg,
+        primaryColor: "#333"
+      },
       languageDictionary: {
         title: 'React Redux Auth0 Kit'
       }
@@ -59,11 +58,11 @@ export default class AuthService {
     // Triggers profile_updated event to update the UI
   }
 
-  // getProfile(){
-  //   // Retrieves the profile data from localStorage
-  //   const profile = localStorage.getItem('profile')
-  //   return profile ? JSON.parse(localStorage.profile) : {}
-  // }
+  getProfile(){
+    // Retrieves the profile data from localStorage
+    const profile = localStorage.getItem('profile')
+    return profile ? JSON.parse(localStorage.profile) : {}
+  }
 
   static setToken(idToken) {
     // Saves user token to localStorage
