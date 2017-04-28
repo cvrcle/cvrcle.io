@@ -16,7 +16,7 @@ export default class AuthService {
         primaryColor: "#333"
       },
       languageDictionary: {
-        title: 'React Redux Auth0 Kit'
+        title: ''
       },
       allowedConnections: ['facebook']
     })
