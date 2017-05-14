@@ -4,7 +4,6 @@ import { Button, Modal, Form, FormGroup, FormControl, ControlLabel } from 'react
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { geocodeByAddress, geocodeByPlaceId } from 'react-places-autocomplete';
 import { connect } from 'react-redux';
-import GOOGLE_API_KEY from '../../../config.js';
 import qs from 'qs'
 
 class EntryModal extends Component {
@@ -82,8 +81,7 @@ class EntryModal extends Component {
 
     geocodeByAddress(address,  (err, { lat, lng }) => {
       if (err) { console.log('Error', err) } 
-      const key = GOOGLE_API_KEY
-      let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${key}`
+      let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.GOOGLE_API_KEY}`
       //axios call to google maps api with lat and lng
       axios
         .get(url)

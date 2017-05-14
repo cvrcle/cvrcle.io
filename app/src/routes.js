@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
-// import { App, HomePage } from './containers'
 import App from './containers/App.jsx'
 import HomePage from './containers/HomePage.jsx'
 import NotFoundPage from './components/NotFoundPage.jsx'
