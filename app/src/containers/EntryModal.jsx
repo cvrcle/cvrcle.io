@@ -5,8 +5,7 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 import { geocodeByAddress, geocodeByPlaceId } from 'react-places-autocomplete';
 import { connect } from 'react-redux';
 import GOOGLE_API_KEY from '../../../config.js';
-
-const qs = require('qs');
+import qs from 'qs'
 
 class EntryModal extends Component {
   constructor(props) {
