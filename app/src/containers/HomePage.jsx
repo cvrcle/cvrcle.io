@@ -27,7 +27,6 @@ class HomePage extends Component {
     if (this.props.isAuthenticated) {
       let fbID = this.props.profile.user_id
       let id = fbID.split('|')
-      console.log('id', id)
       axios.get(`http://localhost:3000/users?fbID=${id[1]}`)
         .then((res) => {
           let tmp = res.data[0]["id"]

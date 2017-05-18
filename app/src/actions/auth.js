@@ -25,11 +25,9 @@ export function checkLogin() {
           email: profile.email,
           fbID: userID,
         }
-        console.log('new user', newUser)
         axios
           .get(`http://localhost:3000/users?authID=${userID}`)
           .then((response) => {
-            console.log('response in axios get request', response)
             if (!response.data.length) {
               axios.post('http://localhost:3000/users', newUser)
                 .then(() => {
