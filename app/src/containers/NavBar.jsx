@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { hashHistory, Link } from 'react-router';
+import { loginRequest, logoutSuccess } from '../actions/auth'
 import { Navbar, NavbarHeader, Nav } from 'react-bootstrap';
 import { Image } from 'semantic-ui-react';
-import { Link } from 'react-router';
 
 // props passed down from redux store
 
-const NavBar = ({ isAuthenticated, onLoginClick, onLogoutClick }) =>
+const NavBar = ({ isAuthenticated, onLoginClick, onLogoutClick }) => (
   <div>
     <Navbar>
       <Navbar.Header>
@@ -20,6 +22,7 @@ const NavBar = ({ isAuthenticated, onLoginClick, onLogoutClick }) =>
       </Nav>
     </Navbar>
   </div>
+)
 
 NavBar.propTypes = {
   isAuthenticated: React.PropTypes.bool.isRequired,
@@ -27,4 +30,26 @@ NavBar.propTypes = {
   onLogoutClick: React.PropTypes.func.isRequired
 }
 
-export default NavBar
+const mapStateToProps = (state) => {
+  const { isAuthenticated, profile, error } = state.auth
+  return {
+    isAuthenticated,
+    profile,
+    error
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLoginClick: () => {
+      dispatch(loginRequest())
+    },
+    onLogoutClick: () => {
+      dispatch(logoutSuccess())
+      hashHistory.push('/')
+      location.reload()
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar)

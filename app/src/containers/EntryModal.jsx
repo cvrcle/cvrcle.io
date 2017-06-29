@@ -4,9 +4,7 @@ import { Button, Modal, Form, FormGroup, FormControl, ControlLabel } from 'react
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { geocodeByAddress, geocodeByPlaceId } from 'react-places-autocomplete';
 import { connect } from 'react-redux';
-import GOOGLE_API_KEY from '../../../config.js';
-
-const qs = require('qs');
+import qs from 'qs'
 
 class EntryModal extends Component {
   constructor(props) {
@@ -48,7 +46,7 @@ class EntryModal extends Component {
     if (this.props.isAuthenticated) {
       let fbID = this.props.profile.user_id
       let id = fbID.split('|')
-      axios.get(`http://localhost:3000/users?fbID=${id[1]}`)
+      axios.get(process.env.API_URI + `/users?fbID=${id[1]}`)
         .then((res) => {
           let tmp = res.data[0]["id"]
           this.setState({
@@ -83,8 +81,7 @@ class EntryModal extends Component {
 
     geocodeByAddress(address,  (err, { lat, lng }) => {
       if (err) { console.log('Error', err) } 
-      const key = GOOGLE_API_KEY
-      let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${key}`
+      let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.GOOGLE_API_KEY}`
       //axios call to google maps api with lat and lng
       axios
         .get(url)
@@ -102,7 +99,7 @@ class EntryModal extends Component {
           };
 
           axios
-            .post('http://localhost:3000/entries', qs.stringify(locationToDatabase))
+            .post(process.env.API_URI + '/entries', qs.stringify(locationToDatabase))
             .then((response) => {
               this.props.newEntryAdded(locationToDatabase);
             })

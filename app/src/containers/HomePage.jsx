@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import axios from 'axios';
-import NavBar from '../../components/NavBar/NavBar.js';
 import { Card, Header, Icon, Image, Circular } from 'semantic-ui-react';
 import { hashHistory } from 'react-router';
 import { Link } from 'react-router';
 import $ from 'jquery';
 import { connect } from 'react-redux';
-import NewItinModal from '../../components/NewItinModal.jsx'
-
-/**
- * @description:  HomePage.js renders a unique homepage for every user after logging in
- *                Has their profile (picture + name) and their list of itineraries
- *                + receives props from redux store (for user ID)
- * @class HomePage
- * @extends {Component}
- */
+import NewItinModal from '../components/NewItinModal.jsx'
 
 class HomePage extends Component {
   constructor() {
@@ -36,7 +27,7 @@ class HomePage extends Component {
     if (this.props.isAuthenticated) {
       let fbID = this.props.profile.user_id
       let id = fbID.split('|')
-      axios.get(`http://localhost:3000/users?fbID=${id[1]}`)
+      axios.get(process.env.API_URI + `/users?fbID=${id[1]}`)
         .then((res) => {
           let tmp = res.data[0]["id"]
           this.setState({
@@ -53,7 +44,7 @@ class HomePage extends Component {
   }
 
   getUserItineraries() {
-    axios.get(`http://localhost:3000/itineraries?ownerID=${this.state.oid}`)
+    axios.get(process.env.API_URI + `/itineraries?ownerID=${this.state.oid}`)
       .then((res) => this.setState({ itins: res.data }))
       .catch(err => console.log(err))
   }
@@ -64,7 +55,7 @@ class HomePage extends Component {
     const id = e.target.dataset.id;
     const oid = e.target.dataset.ownerid;
 
-    axios.delete(`http://localhost:3000/itineraries?id=${id}&ownerID=${oid}`)
+    axios.delete(process.env.API_URI + `/itineraries?id=${id}&ownerID=${oid}`)
       .then((res) => {
         $('#id-' + id).remove();
       })

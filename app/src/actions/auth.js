@@ -1,14 +1,11 @@
 import { hashHistory } from 'react-router'
 import AuthService from '../utils/AuthService'
+import axios from 'axios';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_ERROR = 'LOGIN_ERROR'
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
-
-// AUTH0_CLIENT_ID=qpfelAKW1EAzyb3RI3pk46SD0deXrJhE
-// AUTH0_CLIENT_SECRET=_pps_7k9PizjlAYup6vI6pUqL2NhSNsttwUQ_F64FwPfSqhLUZXV17I-ocLRpAI9
-// AUTH0_DOMAIN=cvrcle.auth0.com
 
 
 const authService = new AuthService('qpfelAKW1EAzyb3RI3pk46SD0deXrJhE', 'cvrcle.auth0.com')
@@ -20,11 +17,28 @@ export function checkLogin() {
     // Add callback for lock's `authenticated` event
     authService.lock.on('authenticated', (authResult) => {
       authService.lock.getProfile(authResult.idToken, (error, profile) => {
-        if (error)
-          return dispatch(loginError(error))
-        AuthService.setToken(authResult.idToken) // static method
-        AuthService.setProfile(profile) // static method
-        return dispatch(loginSuccess(profile))
+        if (error) { return dispatch(loginError(error)) }
+        let userID = profile.identities[0].user_id
+        let newUser = {
+          firstName: profile.given_name,
+          lastName: profile.family_name,
+          email: profile.email,
+          fbID: userID,
+        }
+        axios
+          .get(process.env.API_URI + `/users?authID=${userID}`)
+          .then((response) => {
+            if (!response.data.length) {
+              axios.post(process.env.API_URI + '/users', newUser)
+                .then(() => {
+                  console.log('new user has been added')
+                })
+            }
+            AuthService.setProfile(profile) // static method
+            AuthService.setToken(authResult.idToken) // static method
+            dispatch(loginSuccess(profile))
+            hashHistory.push('/home')
+          })
       })
     })
     // Add callback for lock's `authorization_error` event

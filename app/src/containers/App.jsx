@@ -1,9 +1,10 @@
 import React from 'react'
-import { NavBarContainer } from '../../containers'
+import { connect } from 'react-redux'
+import { checkLogin } from '../actions/auth'
+import NavBar from './NavBar.jsx'
 
 // default view for the app
 // see /src/routes for routes for this.props.children
-
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -14,7 +15,7 @@ class App extends React.Component {
     return(
       // navbar persists throughout the whole app
       <div>
-        <NavBarContainer />
+        <NavBar />
         {this.props.children}
       </div>
     )
@@ -26,4 +27,11 @@ App.propTypes = {
   checkLogin: React.PropTypes.func.isRequired
 }
 
-export default App
+const mapDispatchToProps = (dispatch) => {
+  return {
+    checkLogin: () => dispatch(checkLogin())
+  }
+}
+
+export default App = connect(null, mapDispatchToProps)(App)
+

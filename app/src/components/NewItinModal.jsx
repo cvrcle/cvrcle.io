@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { Button, Modal, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-import GOOGLE_API_KEY from '../../../config.js';
 
 class NewItinModal extends Component {
   constructor(props) {
@@ -12,7 +11,6 @@ class NewItinModal extends Component {
     }
     // function binds
     this.close = this.close.bind(this);
-    this.onChange = this.onChange.bind(this);
     this.handleInputchange = this.handleInputchange.bind(this);
     this.addUserItinerary = this.addUserItinerary.bind(this);
   }
@@ -42,7 +40,7 @@ class NewItinModal extends Component {
       isActive: 1,
       isPublic: 0,
     }
-    axios.post('http://localhost:3000/itineraries', itinData)
+    axios.post(process.env.API_URI + '/itineraries', itinData)
       .then((res) => {
         itinData.created_at = res.data.created_at.substring(0,10)
         this.props.newItinAdded(itinData);
