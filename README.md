@@ -47,6 +47,4 @@ Tech used:
 
 - React-BootStrap
 
-- JQuery because everyting fucking uses JQuery
-
 - WebPack / WebPack Dev Server w/ hot reload + WebPack Dashboard
