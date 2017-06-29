@@ -40,7 +40,7 @@ class NewItinModal extends Component {
       isActive: 1,
       isPublic: 0,
     }
-    axios.post('http://localhost:3000/itineraries', itinData)
+    axios.post(process.env.API_URI + '/itineraries', itinData)
       .then((res) => {
         itinData.created_at = res.data.created_at.substring(0,10)
         this.props.newItinAdded(itinData);

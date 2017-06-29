@@ -27,7 +27,7 @@ class HomePage extends Component {
     if (this.props.isAuthenticated) {
       let fbID = this.props.profile.user_id
       let id = fbID.split('|')
-      axios.get(`http://localhost:3000/users?fbID=${id[1]}`)
+      axios.get(process.env.API_URI + `/users?fbID=${id[1]}`)
         .then((res) => {
           let tmp = res.data[0]["id"]
           this.setState({
@@ -44,7 +44,7 @@ class HomePage extends Component {
   }
 
   getUserItineraries() {
-    axios.get(`http://localhost:3000/itineraries?ownerID=${this.state.oid}`)
+    axios.get(process.env.API_URI + `/itineraries?ownerID=${this.state.oid}`)
       .then((res) => this.setState({ itins: res.data }))
       .catch(err => console.log(err))
   }
@@ -55,7 +55,7 @@ class HomePage extends Component {
     const id = e.target.dataset.id;
     const oid = e.target.dataset.ownerid;
 
-    axios.delete(`http://localhost:3000/itineraries?id=${id}&ownerID=${oid}`)
+    axios.delete(process.env.API_URI + `/itineraries?id=${id}&ownerID=${oid}`)
       .then((res) => {
         $('#id-' + id).remove();
       })

@@ -46,7 +46,7 @@ class EntryModal extends Component {
     if (this.props.isAuthenticated) {
       let fbID = this.props.profile.user_id
       let id = fbID.split('|')
-      axios.get(`http://localhost:3000/users?fbID=${id[1]}`)
+      axios.get(process.env.API_URI + `/users?fbID=${id[1]}`)
         .then((res) => {
           let tmp = res.data[0]["id"]
           this.setState({
@@ -99,7 +99,7 @@ class EntryModal extends Component {
           };
 
           axios
-            .post('http://localhost:3000/entries', qs.stringify(locationToDatabase))
+            .post(process.env.API_URI + '/entries', qs.stringify(locationToDatabase))
             .then((response) => {
               this.props.newEntryAdded(locationToDatabase);
             })

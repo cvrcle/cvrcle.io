@@ -26,10 +26,10 @@ export function checkLogin() {
           fbID: userID,
         }
         axios
-          .get(`http://localhost:3000/users?authID=${userID}`)
+          .get(process.env.API_URI + `/users?authID=${userID}`)
           .then((response) => {
             if (!response.data.length) {
-              axios.post('http://localhost:3000/users', newUser)
+              axios.post(process.env.API_URI + '/users', newUser)
                 .then(() => {
                   console.log('new user has been added')
                 })

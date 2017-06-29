@@ -6,6 +6,7 @@ import ContributorEntry from '../containers/ContributorEntry.jsx';
 import GoogleMap from '../containers/Map.jsx';
 import AddNewEntry from './AddNewEntry.jsx';
 
+
 class Itinerary extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,6 @@ class Itinerary extends Component {
       itinID: '',
       itinName: '',
     };
-
     this.newEntryAdded = this.newEntryAdded.bind(this);
     this.getUserEntries = this.getUserEntries.bind(this);
     this.deleteEntry = this.deleteEntry.bind(this);
@@ -40,7 +40,8 @@ class Itinerary extends Component {
   // request to databse for the specific itinerary then
   // sets state for entries to pass down to GoogleMap and ContributorEntry
   getUserEntries() {
-    axios.get('http://localhost:3000/entries?itinID=' + this.itinID)
+    // console.log('api_uri', process.env)
+    axios.get(process.env.API_URI + '/entries?itinID=' + this.itinID)
       .then((res) => {
         this.setState({ entries: res.data })
         if (res.data.length) {
@@ -70,7 +71,7 @@ class Itinerary extends Component {
 
   // gets the itinerary for title of the page
   getItinName() {
-    axios.get('http://localhost:3000/itineraries?id=' + this.itinID)
+    axios.get(process.env.API_URI + '/itineraries?id=' + this.itinID)
       .then((res) => {
         this.setState({
           itinName: res.data[0].itinName
@@ -164,7 +165,7 @@ class Itinerary extends Component {
       if (item.id === entry.id) {
         arr.splice(i, 1);
         this.state.markers[i].setMap(null);
-        axios.delete(`http://localhost:3000/entries?id=${entry.id}&itinID=${this.itinID}`)
+        axios.delete(process.env.API_URI + `/entries?id=${entry.id}&itinID=${this.itinID}`)
           .then(() => {
             this.setState({
               entries: arr
