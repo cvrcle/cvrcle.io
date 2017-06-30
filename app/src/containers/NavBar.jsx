@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { hashHistory, Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { loginRequest, logoutSuccess } from '../actions/auth'
 import { Navbar, NavbarHeader, Nav } from 'react-bootstrap';
 import { Image } from 'semantic-ui-react';
@@ -46,8 +46,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     onLogoutClick: () => {
       dispatch(logoutSuccess())
-      hashHistory.push('/')
-      location.reload()
     }
   }
 }

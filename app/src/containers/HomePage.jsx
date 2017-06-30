@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import axios from 'axios';
 import { Card, Header, Icon, Image, Circular } from 'semantic-ui-react';
-import { hashHistory } from 'react-router';
 import { Link } from 'react-router';
 import $ from 'jquery';
 import { connect } from 'react-redux';
@@ -77,6 +76,7 @@ class HomePage extends Component {
   }
 
   render() {
+    console.log('props', this.props)
     return (
       <div className="itin-container container">
         {this.state.isClicked ?

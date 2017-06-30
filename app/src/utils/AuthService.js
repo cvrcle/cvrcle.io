@@ -29,6 +29,7 @@ export default class AuthService {
   // ======================================================
   login() {
     // Call the show method to display the widget.
+    console.log('inside of login')
     this.lock.show()
   }
 

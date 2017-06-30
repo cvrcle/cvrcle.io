@@ -16,6 +16,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR,
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -55,6 +56,9 @@ module.exports = {
         loader: 'url-loader',
         query: { limit: 8192, name: 'fonts/[name].[ext]?[hash]' },
       }],
+  },
+  devServer: {
+    historyApiFallback: true
   },
   plugins: [
     new CopyWebpackPlugin([{ from: PUBLIC_DIR }]),
