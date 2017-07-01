@@ -59,7 +59,7 @@ export function loginRequest() {
 
 export function loginSuccess(profile) {
   console.log('inside of login success ')
-  history.replace('/home')
+  history.push('/home')
   return {
     type: LOGIN_SUCCESS,
     profile
@@ -76,7 +76,7 @@ export function loginError(error) {
 export function logoutSuccess() {
   console.log('inside of logout success')
   authService.logout()
-  history.replace('/logout')
+  history.push('/logout')
   return {
     type: LOGOUT_SUCCESS
   }

@@ -26,8 +26,8 @@ const store = configureStore()
 
 export const makeMainRoutes = () => {
   return (
-    <Router history = {history} >
-      <Provider store={store}>
+    <Provider store={store}>
+      <Router history={history} >
         <div>
           <div>
             <NavBar />
@@ -40,8 +40,8 @@ export const makeMainRoutes = () => {
             <Route pattern="/logout" component={LandingPage} />
           </Switch>
         </div>
-      </Provider>
-    </Router>
+      </Router>
+    </Provider>
   )
 }
 
