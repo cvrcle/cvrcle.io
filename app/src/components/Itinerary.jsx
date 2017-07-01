@@ -28,7 +28,7 @@ class Itinerary extends Component {
   
   // gets itineraryID from the url
   getQueryParams(param) {
-    var query = window.location.hash.substring(1);
+    var query = window.location.href.substring(1);
     var vars = query.split("?");
     for (var i = 0; i < vars.length; i++) {
       var pair = vars[i].split("=");
@@ -40,7 +40,6 @@ class Itinerary extends Component {
   // request to databse for the specific itinerary then
   // sets state for entries to pass down to GoogleMap and ContributorEntry
   getUserEntries() {
-    // console.log('api_uri', process.env)
     axios.get(process.env.API_URI + '/entries?itinID=' + this.itinID)
       .then((res) => {
         this.setState({ entries: res.data })

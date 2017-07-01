@@ -33,11 +33,11 @@ export const makeMainRoutes = () => {
             <NavBar />
           </div>
           <Switch>
-            <Route exactly pattern="/" component={LandingPage} />
-            <Route pattern="/home" component={HomePage} />
-            <Route pattern="/itinerary" component={Itinerary} />
-            <Route pattern="/*" component={NotFoundPage} />
-            <Route pattern="/logout" component={LandingPage} />
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/home" component={HomePage} />
+            <Route path="/itinerary" component={Itinerary} />
+            <Route path="/*" component={NotFoundPage} />
+            <Route path="/logout" component={LandingPage} />
           </Switch>
         </div>
       </Router>

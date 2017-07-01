@@ -16,6 +16,7 @@ class App extends React.Component {
       // navbar persists throughout the whole app
       <div>
         <NavBar />
+        {this.props.children}
       </div>
     )
   }

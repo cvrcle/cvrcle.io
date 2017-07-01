@@ -76,7 +76,7 @@ export function loginError(error) {
 export function logoutSuccess() {
   console.log('inside of logout success')
   authService.logout()
-  history.push('/logout')
+  history.push('/')
   return {
     type: LOGOUT_SUCCESS
   }

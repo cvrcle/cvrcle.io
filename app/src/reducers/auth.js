@@ -1,6 +1,5 @@
 import * as ActionTypes from '../actions'
 import AuthService from '../utils/AuthService'
-import { routerReducer as routing } from 'react-router-redux';
 
 export default function authReducer(state = {
   isAuthenticated: !AuthService.isTokenExpired(),
