@@ -29,7 +29,6 @@ export default class AuthService {
   // ======================================================
   login() {
     // Call the show method to display the widget.
-    console.log('inside of login')
     this.lock.show()
   }
 
@@ -60,7 +59,7 @@ export default class AuthService {
     // Triggers profile_updated event to update the UI
   }
 
-  getProfile(){
+  static getProfile(){
     // Retrieves the profile data from localStorage
     const profile = localStorage.getItem('profile')
     return profile ? JSON.parse(localStorage.profile) : {}

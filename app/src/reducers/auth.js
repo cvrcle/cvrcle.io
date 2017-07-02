@@ -1,4 +1,4 @@
-import * as ActionTypes from '../actions'
+import * as ActionTypes from '../actions/constants'
 import AuthService from '../utils/AuthService'
 
 export default function authReducer(state = {

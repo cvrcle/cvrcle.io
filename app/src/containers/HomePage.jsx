@@ -76,7 +76,7 @@ class HomePage extends Component {
   }
 
   render() {
-    console.log('props', this.props)
+    // console.log('props', this.props)
     return (
       <div className="itin-container container">
         {this.state.isClicked ?

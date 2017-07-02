@@ -1,41 +1,26 @@
 import history from '../history'
 import AuthService from '../utils/AuthService'
 import axios from 'axios';
+import * as authActions from './constants'
 
-export const LOGIN_REQUEST = 'LOGIN_REQUEST'
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-export const LOGIN_ERROR = 'LOGIN_ERROR'
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
-
-console.log(process.env.AUTH0_CLIENT_ID)
 const authService = new AuthService(process.env.AUTH0_CLIENT_ID, process.env.AUTH0_DOMAIN)
 
 // Listen to authenticated event from AuthService and get the profile of the user
 // Done on every page startup
 export function checkLogin() {
-  console.log('inside of checklogin')
   return (dispatch) => {
     // Add callback for lock's `authenticated` event
     authService.lock.on('authenticated', (authResult) => {
       authService.lock.getProfile(authResult.idToken, (error, profile) => {
-        if (error) { 
-          return dispatch(loginError(error)) 
+        if (error) {
+          return dispatch(loginError(error))
         }
         let userID = profile.identities[0].user_id
-        let newUser = {
-          firstName: profile.given_name,
-          lastName: profile.family_name,
-          email: profile.email,
-          fbID: userID,
-        }
         axios
-          .get(process.env.API_URI + `/users?authID=${userID}`)
+          .get(process.env.API_URI + `/users?fbID=${userID}`)
           .then((response) => {
             if (!response.data.length) {
-              axios.post(process.env.API_URI + '/users', newUser)
-                .then(() => {
-                  console.log('new user has been added')
-                })
+              addUser(profile, userID)
             }
             AuthService.setProfile(profile) // static method
             AuthService.setToken(authResult.idToken) // static method
@@ -49,35 +34,48 @@ export function checkLogin() {
   }
 }
 
+const addUser = (profile, userID) => {
+  let newUser = {
+    firstName: profile.given_name,
+    lastName: profile.family_name,
+    email: profile.email,
+    fbID: userID,
+  }
+  axios.post(process.env.API_URI + '/users', newUser)
+    .then(() => {
+      console.log('new user has been added')
+    })
+    .catch((err) => {
+      console.log('error adding a new user', err)
+    })
+}
+
 export function loginRequest() {
-  console.log('inside of login request')
   authService.login()
   return {
-    type: LOGIN_REQUEST
+    type: authActions.LOGIN_REQUEST
   }
 }
 
 export function loginSuccess(profile) {
-  console.log('inside of login success ')
   history.push('/home')
   return {
-    type: LOGIN_SUCCESS,
+    type: authActions.LOGIN_SUCCESS,
     profile
   }
 }
 
 export function loginError(error) {
   return {
-    type: LOGIN_ERROR,
+    type: authActions.LOGIN_ERROR,
     error
   }
 }
 
 export function logoutSuccess() {
-  console.log('inside of logout success')
   authService.logout()
   history.push('/')
   return {
-    type: LOGOUT_SUCCESS
+    type: authActions.LOGOUT_SUCCESS
   }
 }

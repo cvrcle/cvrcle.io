@@ -37,6 +37,15 @@ module.exports = (app) => {
       .catch(next);
   })
 
+  app.delete('/users', (req, res, next) => {
+    User
+      .query()
+      .where('id', req.body.id)
+      .deleteById(req.body.id)
+      .then((deleted) => { res.sendStatus(202).send(deleted); })
+      .catch(next);
+  })
+
   app.get('/entries', (req, res, next) => {
     Entry
       // we can add 'where' logic to filter and query results
@@ -76,7 +85,7 @@ module.exports = (app) => {
       .where('itinID', req.query.itinID)
       .where('id', req.query.id)
       .deleteById(req.query.id)
-      .then((deleted) => { res.send(202, deleted); })
+      .then((deleted) => { res.sendStatus(202).send(deleted); })
       .catch(next);
   })
 
@@ -86,7 +95,7 @@ module.exports = (app) => {
       .where('ownerID', req.query.ownerID)
       .where('id', req.query.id)
       .deleteById(req.query.id)
-      .then((deleted) => { res.send(200, deleted); })
+      .then((deleted) => { res.sendStatus(200).send(deleted); })
       .catch(next);
   });
 
