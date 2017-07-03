@@ -24,6 +24,18 @@ const requireAuth = (nextState, replace) => {
 
 const store = configureStore()
 
+function PrivateRoute({component: Component, authed, ...rest}) {
+  return(
+    <Route 
+      {...rest}
+      render={(props) => authed === true
+        ? <Component {...props} />
+        : <Redirect to={{pathname: '/', state: {from: props.location}}} />
+      }
+    />
+  )
+}
+
 export const makeMainRoutes = () => {
   return (
     <Provider store={store}>
@@ -34,7 +46,7 @@ export const makeMainRoutes = () => {
           </div>
           <Switch>
             <Route exact path="/" component={LandingPage} />
-            <Route path="/home" component={HomePage} />
+            <PrivateRoute authed={AuthService.loggedIn()} path="/home" component={HomePage} />
             <Route path="/itinerary" component={Itinerary} />
             <Route path="/*" component={NotFoundPage} />
             <Route path="/logout" component={LandingPage} />

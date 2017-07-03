@@ -33,7 +33,7 @@ class EntryModal extends Component {
   }
   
   getQueryParams(param) {
-    var query = window.location.hash.substring(1);
+    var query = window.location.href.substring(1);
     var vars = query.split("?");
     for (var i=0;i<vars.length;i++) {
       var pair = vars[i].split("=");

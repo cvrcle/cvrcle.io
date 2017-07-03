@@ -173,7 +173,6 @@ class Itinerary extends Component {
           .catch(err => console.log(err))
       }
     })
-    // window.map.fitBounds(window.markerBounds);    
   }
 
   render() {
