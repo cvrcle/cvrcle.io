@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
@@ -47,9 +47,9 @@ export const makeMainRoutes = () => {
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <PrivateRoute authed={AuthService.loggedIn()} path="/home" component={HomePage} />
-            <Route path="/itinerary" component={Itinerary} />
-            <Route path="/*" component={NotFoundPage} />
-            <Route path="/logout" component={LandingPage} />
+            <PrivateRoute path="/itinerary" component={Itinerary} />
+            <PrivateRoute path="/*" component={NotFoundPage} />
+            <PrivateRoute path="/logout" component={LandingPage} />
           </Switch>
         </div>
       </Router>
