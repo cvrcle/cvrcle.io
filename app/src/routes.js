@@ -47,9 +47,9 @@ export const makeMainRoutes = () => {
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <PrivateRoute authed={AuthService.loggedIn()} path="/home" component={HomePage} />
-            <PrivateRoute path="/itinerary" component={Itinerary} />
-            <PrivateRoute path="/*" component={NotFoundPage} />
-            <PrivateRoute path="/logout" component={LandingPage} />
+            <PrivateRoute authed={AuthService.loggedIn()} path="/itinerary" component={Itinerary} />
+            <PrivateRoute authed={AuthService.loggedIn()} path="/*" component={NotFoundPage} />
+            <PrivateRoute authed={AuthService.loggedIn()} path="/logout" component={LandingPage} />
           </Switch>
         </div>
       </Router>
